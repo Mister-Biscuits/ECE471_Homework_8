@@ -556,36 +556,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main8.c: 13:     while(1) {
 [p x LVP  =  OFF ]
 "14
-[; ;main8.c: 14:         ((PORTD) |= (UBYTE) 0x01);
+[; ;main8.c: 14: 
 [p x WDTEN  =  OFF ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "18
-[; ;main8.c: 18:         ((((PORTD) &= (UBYTE) 0x01)) ? ((PORTD) |= (UBYTE)0x04) : ((PORTD) &= ~(UBYTE)0x04));
+[; ;main8.c: 18:         for(int i=0; i<300; i++) { }
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
 "19
-[; ;main8.c: 19:         for(int i=0; i<300; i++) { }
+[; ;main8.c: 19: 
 [e =& _PORTD -> -> 255 `i `Vuc ]
 "20
-[; ;main8.c: 20:     }
+[; ;main8.c: 20:         ((PORTD) &= ~(UBYTE) 0x01);
 [e =& _TRISD -> ~ -> -> -> 1 `i `uc `i `Vuc ]
 "22
-[; ;main8.c: 22: }
+[; ;main8.c: 22: 
 [e =& _PORTD -> -> 255 `i `Vuc ]
-"23
-[e =| _TRISD -> -> -> 4 `i `uc `Vuc ]
 "24
+[; ;main8.c: 24:     }
 [e =& _TRISD -> ~ -> -> -> 4 `i `uc `i `Vuc ]
 "29
 [e :U 340 ]
 {
-"30
-[e =| _PORTD -> -> -> 1 `i `uc `Vuc ]
 "31
-[e ? != -> =& _PORTD -> -> -> 1 `i `uc `Vuc `i -> 0 `i : -> =| _PORTD -> -> -> 4 `i `uc `Vuc `i -> =& _PORTD -> ~ -> -> -> 4 `i `uc `i `Vuc `i ]
+[e =| _PORTD -> -> -> 1 `i `uc `Vuc ]
 "32
+[e ? != -> =& _PORTD -> -> -> 1 `i `uc `Vuc `i -> 0 `i : -> =| _PORTD -> -> -> 4 `i `uc `Vuc `i -> =& _PORTD -> ~ -> -> -> 4 `i `uc `i `Vuc `i ]
+"34
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -598,11 +597,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < _i -> 300 `i 342  ]
 [e :U 343 ]
 }
-"33
+"36
 [e =& _PORTD -> ~ -> -> -> 1 `i `uc `i `Vuc ]
-"34
+"37
 [e ? != -> =& _PORTD -> -> -> 1 `i `uc `Vuc `i -> 0 `i : -> =| _PORTD -> -> -> 4 `i `uc `Vuc `i -> =& _PORTD -> ~ -> -> -> 4 `i `uc `i `Vuc `i ]
-"35
+"39
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -615,11 +614,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ < _i -> 300 `i 345  ]
 [e :U 346 ]
 }
-"36
+"40
 }
 [e :U 339 ]
 [e $U 340  ]
 [e :U 341 ]
-"38
+"42
 [e :UE 338 ]
 }

@@ -6,11 +6,6 @@
  * Revision history: 
  */
 
-// This is a guard condition so that contents of this file are not included
-// more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
-
 #include <xc.h> // include processor files - each processor file is guarded.  
 
 typedef unsigned char UBYTE;
@@ -21,23 +16,23 @@ typedef unsigned char UBYTE;
 #define CHAN1 1 
 #define CHAN_ENB_1 PORTD /* Dummy enable register*/
 #define CHAN_DIR_1 TRISD /* Direction register of PS0*/
-#define CHAN_PORT_1 PORTD /* PORTA is data register */
-#define CHAN_MASK_1 _B0_ /* The bit field of PS0 */
+#define CHAN_PORT_1 PORTD /* PORTD is data register */
+#define CHAN_MASK_1 _B0_ /* The bit field of RD0 */
 #define CHAN_ENMASK_1 0xFF
 
 //Channel 2
 #define CHAN2 2
 #define CHAN_ENB_2 PORTB /* Dummy enable register*/
-#define CHAN_DIR_2 TRISB /* Direction register of PS0*/
-#define CHAN_PORT_2 PORTB /* PORTA is data register */
-#define CHAN_MASK_2 _B0_ /* The bit field of PS0 */
+#define CHAN_DIR_2 TRISB /* Direction register of RB0*/
+#define CHAN_PORT_2 PORTB /* PORTB is data register */
+#define CHAN_MASK_2 _B0_ /* The bit field of RB0 */
 #define CHAN_ENMASK_2 0xFF
 
 #define CHAN3 3
-#define CHAN_ENB_3   PORTD
-#define CHAN_DIR_3   TRISD
-#define CHAN_PORT_3  PORTD
-#define CHAN_MASK_3  (UBYTE)0x04    /* bit 2 = RD2 */
+#define CHAN_ENB_3   PORTD //Dummy EN register
+#define CHAN_DIR_3   TRISD //Dir Reg for RD2
+#define CHAN_PORT_3  PORTD //PORTD is the data register
+#define CHAN_MASK_3  (UBYTE)0x04    // bit 2 = RD2
 #define CHAN_ENMASK_3 0xFF
 
  

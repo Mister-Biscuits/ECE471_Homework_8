@@ -5415,7 +5415,7 @@ unsigned char __t3rd16on(void);
 # 34 "E:\\MPXLab\\XC8 Compiler\\pic\\include/xc.h" 2 3
 # 10 "main8.c" 2
 # 1 "./pic_hal.h" 1
-# 27 "./pic_hal.h"
+# 11 "./pic_hal.h"
 typedef unsigned char UBYTE;
 # 11 "main8.c" 2
 #pragma config OSC = IRCIO
@@ -5430,18 +5430,22 @@ int main() {
     ((TRISD) &= ~(UBYTE) 0x01);
 
     ((PORTD) &= 0xFF);
-    ((TRISD) |= (UBYTE)0x04);
+
     ((TRISD) &= ~(UBYTE)0x04);
 
 
 
 
     while(1) {
+
         ((PORTD) |= (UBYTE) 0x01);
         ((((PORTD) &= (UBYTE) 0x01)) ? ((PORTD) |= (UBYTE)0x04) : ((PORTD) &= ~(UBYTE)0x04));
+
         for(int i=0; i<300; i++) { }
+
         ((PORTD) &= ~(UBYTE) 0x01);
         ((((PORTD) &= (UBYTE) 0x01)) ? ((PORTD) |= (UBYTE)0x04) : ((PORTD) &= ~(UBYTE)0x04));
+
         for(int i=0; i<300; i++) { }
     }
 
